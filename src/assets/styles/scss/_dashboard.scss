@@ -492,7 +492,7 @@
       height: 300px;
       border-radius: 12px;
       object-fit: contain;
-      background: #efefef;
+      background: #fafafa;
     }
   }
 
@@ -579,34 +579,34 @@
   content: "\f053";
 }
 
-.user-modal {
-  .nav-pills {
-    gap: 12px;
-    flex-direction: row;
-    margin-bottom: 16px;
+.nav-pills {
+  gap: 12px;
+  flex-direction: row;
+  margin-bottom: 16px;
 
-    .nav-item {
-      flex: 1;
+  .nav-item {
+    flex: 1;
 
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f6f6f6;
-        color: #000;
-        padding: 10px;
-        border-radius: 60px;
-        font-weight: 500;
-        transition: all 0.2s ease;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f6f6f6;
+      color: #000;
+      padding: 10px;
+      border-radius: 60px;
+      font-size: 14px;
+      transition: all 0.2s ease;
 
-        &.active {
-          background: #f05b4e;
-          color: #fff;
-        }
+      &.active {
+        background: #f05b4e;
+        color: #fff;
       }
     }
   }
+}
 
+.user-modal {
   .user-info {
     background: #fff;
     border: 1px solid #eee;
@@ -649,82 +649,77 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
   }
+}
+.bookings-grid {
+  display: grid;
+  max-height: 400px;
+  overflow-y: scroll;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
 
-  .bookings-grid {
-    display: grid;
-    max-height: 400px;
-    overflow-y: scroll;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
+.booking-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h6 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .status {
+      font-size: 12px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      text-transform: capitalize;
+
+      &-1 {
+        background: #ffc107;
+        color: #000;
+      } // Waiting (Amber)
+      &-2 {
+        background: #dc3545;
+        color: #fff;
+      } // Rejected (Red)
+      &-3 {
+        background: #28a745;
+        color: #fff;
+      } // Accepted (Green)
+      &-4 {
+        background: #6c757d;
+        color: #fff;
+      } // Cancelled by user (Gray)
+      &-5 {
+        background: #007bff;
+        color: #fff;
+      } // Paid (Blue)
+      &-6 {
+        background: #ff5722;
+        color: #fff;
+      } // Cancelled by provider (Orange)
+      &-7 {
+        background: #20c997;
+        color: #fff;
+      } // Booking Completed (Teal)
+    }
   }
 
-  .booking-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
-
-    &:hover {
-      transform: translateY(-3px);
-    }
-
-    .booking-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-
-      h6 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      .status {
-        font-size: 12px;
-        padding: 4px 14px;
-        border-radius: 20px;
-        text-transform: capitalize;
-
-        &-1 {
-          background: #ffc107;
-          color: #000;
-        } // Waiting (Amber)
-        &-2 {
-          background: #dc3545;
-          color: #fff;
-        } // Rejected (Red)
-        &-3 {
-          background: #28a745;
-          color: #fff;
-        } // Accepted (Green)
-        &-4 {
-          background: #6c757d;
-          color: #fff;
-        } // Cancelled by user (Gray)
-        &-5 {
-          background: #007bff;
-          color: #fff;
-        } // Paid (Blue)
-        &-6 {
-          background: #ff5722;
-          color: #fff;
-        } // Cancelled by provider (Orange)
-        &-7 {
-          background: #20c997;
-          color: #fff;
-        } // Booking Completed (Teal)
-      }
-    }
-
-    .booking-body {
-      p {
-        margin: 4px 0;
-        font-size: 14px;
-        color: #444;
-      }
+  .booking-body {
+    p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #444;
     }
   }
 }
