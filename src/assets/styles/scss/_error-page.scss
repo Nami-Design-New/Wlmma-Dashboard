@@ -1,0 +1,42 @@
+.error-page {
+  background-color: #f8f9fa;
+  height: 100vh;
+
+  .container {
+    padding: 20px;
+    height: 100%;
+    @include centerFlex();
+    flex-direction: column;
+  }
+
+  img {
+    height: 360px;
+  }
+
+  .error-title {
+    font-size: 32px;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .error-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  a {
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #fff;
+    background: var(--second-color);
+    border-radius: 120px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+    &:hover {
+      background: var(--dark-color);
+    }
+  }
+}

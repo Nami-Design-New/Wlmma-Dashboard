@@ -1,0 +1,248 @@
+$input_bg: #fff;
+$input_hint: #8d8d8d;
+$input_stroke: #e0e0e0;
+$black: #0d0d0d;
+$white: #fff;
+$main: #f05b4e;
+$second: #0d9595;
+$yellow: #faae43;
+$gray: #8d8d8d;
+
+.login_section {
+  padding: 16px;
+  display: grid;
+  height: 100dvh;
+  grid-template-columns: repeat(2, 1fr);
+
+  .img {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      );
+    }
+  }
+
+  .form_ui {
+    padding: 32px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+
+      .logo {
+        img {
+          height: 80px;
+        }
+      }
+
+      .text {
+        h2 {
+          font-size: 32px;
+        }
+        p {
+          font-size: 16px;
+          color: #0d0d0db2;
+        }
+      }
+    }
+  }
+}
+
+.form_ui {
+  width: 100%;
+
+  .input-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 6px;
+
+    .phone_code {
+      color: #808080;
+      position: absolute;
+      top: 41px;
+      left: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pass-group {
+      display: flex;
+      .show-pass {
+        @include centerFlex();
+        cursor: pointer;
+        width: 60px;
+        height: 48px;
+        color: $input_hint;
+        background: $input_bg;
+        border: 1px solid $input_stroke;
+        border-left: 0;
+        border-radius: 0 12px 12px 0 !important;
+      }
+      input {
+        border-right: 0 !important;
+        border-radius: 12px 0 0 12px !important;
+      }
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      height: 48px;
+      display: block;
+      outline: none;
+      font-size: 14px;
+      border: 1px solid $input_stroke;
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: none !important;
+
+      &.phone {
+        padding-left: 50px;
+      }
+    }
+
+    textarea {
+      height: 122px;
+    }
+
+    label {
+      color: $black;
+      font-weight: 500;
+      font-size: 14px;
+
+      i {
+        font-size: 12px;
+        color: $second;
+      }
+      span {
+        font-size: 12px;
+        color: $gray;
+      }
+    }
+  }
+
+  .check_field {
+    cursor: pointer;
+    input {
+      display: none;
+      appearance: none;
+      &:checked + span {
+        background: $black;
+        color: $white;
+        border-color: $black;
+      }
+    }
+
+    span {
+      background: $input_bg;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      border: 1px solid $input_stroke;
+    }
+  }
+
+  .log {
+    width: 100%;
+    height: 48px;
+    border: 1px solid $main;
+    color: $white;
+    border-radius: 12px;
+    background-color: $main;
+  }
+
+  .image_fiels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    height: 220px;
+    border-radius: 16px;
+    width: 100%;
+    border: 1px dashed #c4c4c4;
+
+    i {
+      font-size: 40px;
+      color: #dbdbdb;
+    }
+
+    h6 {
+      font-size: 14px;
+    }
+
+    input {
+      display: none;
+    }
+
+    .preview-img{
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.form-check-input:focus {
+  border-color: $main;
+}
+
+.form-check-input:checked {
+  background-color: $main;
+  border-color: $main;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.form-check {
+  display: flex;
+  min-height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 12px;
+
+  input {
+    margin: 0 !important;
+    float: none !important;
+    cursor: pointer;
+    box-shadow: none !important;
+  }
+}
+
+.invalid-feedback {
+  display: block !important;
+}

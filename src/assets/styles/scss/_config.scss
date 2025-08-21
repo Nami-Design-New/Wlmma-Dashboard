@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
+
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin clearInput {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+:root {
+  --main-color: #f05b4e;
+  --main-color-50: #ff5b4b0a;
+  --second-color: #0d9595;
+  --yellow-color: #faae43;
+  --dark-color: #373737;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  height: 300px;
+}
+
+:target {
+  scroll-margin-top: 100px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li[data-sonner-toast=""] {
+  padding: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+button {
+  border: none;
+  background-color: unset;
+  color: #000;
+}
+
+.row {
+  margin: 0;
+}
+
+input[type="number"] {
+  &::-webkit-outer-spin-button {
+    display: none;
+  }
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input,
+select,
+textarea,
+button {
+  @include clearInput();
+}
+
+.dropdown-menu {
+  border: 0 !important;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1) !important;
+  margin-top: 14px !important;
+  background: #fff;
+  border-radius: 8px;
+  text-align: start !important;
+  padding: 8px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.modal-header {
+  border-bottom: 0;
+  .btn-close {
+    padding: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    margin-inline-end: 0 !important;
+    margin-inline-start: auto !important;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: relative;
+    opacity: 1;
+    &::before {
+      @include centerAbsolute();
+      font-family: "Font Awesome 6 Pro";
+      content: "\f00d";
+      font-size: 14px;
+      color: var(--dark-color);
+    }
+    &:hover {
+      background: #f4f4f4 !important;
+    }
+  }
+  h6 {
+    color: var(--dark-color);
+    margin-bottom: 0;
+  }
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.modal .modal-xl {
+  max-width: unset;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.btn-solid-main {
+  background-color: var(--second-color);
+  color: #fff;
+  width: fit-content;
+  opacity: 1;
+  border-radius: 72px;
+  padding-block: 12px;
+  padding-inline: 30px;
+}
+
+.text-main-color {
+  color: var(--main-color);
+}
+
+.bg-main-color {
+  color: var(--main-color);
+}
+
+.bg-main-50 {
+  background-color: var(--main-color-50);
+}
+
+.text-second-color {
+  color: var(--second-color);
+}
+
+.bg-second-color {
+  background-color: var(--second-color);
+}
+
+.text-dark-color {
+  color: var(--dark-color);
+}
+
+.text-yellow-color {
+  color: var(--yellow-color);
+}
+
+.text-orange-color {
+  color: var(--main-color);
+}
+
+.offcanvas .nav a {
+  color: var(--dark-color) !important;
+}
+
+.tableLoader {
+  min-height: 548px;
+  @include centerFlex();
+  flex-direction: column;
+  .loader--style8 {
+    width: 40px;
+    height: 40px;
+  }
+  svg path,
+  svg rect {
+    fill: var(--main-color);
+    stroke: var(--main-color);
+  }
+}
+
+.confirmation_modal {
+  p {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    span {
+      line-height: inherit;
+      color: #a80200;
+      font-weight: 600;
+    }
+  }
+
+  .cancel {
+    @include clearInput();
+    height: 44px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #000;
+    color: #000;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .confirm {
+    background: #ff5b4b;
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    border-radius: 12px;
+    &:hover {
+      background: #ff5b4b;
+    }
+    &.red {
+      background: #ff3a29;
+      &:hover {
+        background: #ff3a29;
+      }
+    }
+  }
+}
