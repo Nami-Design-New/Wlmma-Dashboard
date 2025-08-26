@@ -9,7 +9,7 @@ export default function useApproveDeclineUser(item, setShowDeleteModal, mode) {
 
   const { mutate: approveOrDecline, isPending: isPending } = useMutation({
     mutationFn: async () => {
-      const response = await axiosInstance.put("/admin/users/approve", {
+      const response = await axiosInstance.post("/admin/users/approve", {
         phone_number: item.provider.phone_number,
         approve: mode === "approve" ? "yes" : "no",
       });
