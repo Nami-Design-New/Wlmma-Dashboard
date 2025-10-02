@@ -308,6 +308,11 @@ body .login_section {
   height: 100dvh;
   grid-template-columns: repeat(2, 1fr);
 }
+@media (max-width: 992px) {
+  body .login_section {
+    grid-template-columns: 1fr;
+  }
+}
 body .login_section .img {
   width: 100%;
   border-radius: 16px;
@@ -319,6 +324,11 @@ body .login_section .img img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 992px) {
+  body .login_section .img {
+    display: none;
+  }
 }
 body .login_section .img::after {
   content: "";

@@ -3,7 +3,7 @@ import { useState } from "react";
 import useGetRooms from "../../hooks/chat/useGetRooms";
 
 export default function SideBar() {
-  const { data: rooms } = useGetRooms();
+  const { data: roomsData } = useGetRooms();
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedRoom, setSelectedRoom] = useState(searchParams.get("room_id"));
 
@@ -11,11 +11,11 @@ export default function SideBar() {
     setSelectedRoom(room_id);
     setSearchParams({ room_id });
   }
-
+  
   return (
     <aside className="chat_sidebar">
       <div className="cards">
-        {rooms?.map((chat) => (
+        {roomsData?.original?.rooms?.map((chat) => (
           <div
             className={`chat_card ${selectedRoom === chat?.room_id ? "active" : ""}`}
             key={chat?.room_id}

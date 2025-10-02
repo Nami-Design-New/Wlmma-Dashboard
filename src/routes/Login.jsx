@@ -46,7 +46,7 @@ export default function Login() {
         </form>
       </div>
 
-      <div className="img">
+      <div className="img ">
         <img src="/images/auth.jpg" alt="login" />
       </div>
     </section>
