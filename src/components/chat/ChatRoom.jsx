@@ -24,11 +24,12 @@ export default function ChatRoom() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [data?.messages]);
+    setMessageToSent("")
+  }, [data?.messages , data?.room_id]);
 
   const { mutate: sendMessage, isPending } = useMutation({
     mutationFn: async (message) => {
-      const response = await axiosInstance.post("/admin/chat/send", message);
+      const response = await axiosInstance.post("/admin/chat/send", message);      
       return response.data;
     },
 
@@ -49,7 +50,7 @@ export default function ChatRoom() {
           <div className="img">
             <img
               src={
-                rooms?.find?.((room) => room.room_id === data?.room_id)?.user
+                rooms?.original?.rooms.find?.((room) => room.room_id === data?.room_id)?.user
                   ?.image || "/images/icons/user_default.png"
               }
               alt="avatar"
@@ -60,7 +61,7 @@ export default function ChatRoom() {
           <div className="content">
             <h6>
               {
-                rooms?.find?.((room) => room.room_id === data?.room_id)?.user
+                rooms?.original?.rooms.find?.((room) => room.room_id === data?.room_id)?.user
                   ?.name
               }
             </h6>
@@ -91,7 +92,7 @@ export default function ChatRoom() {
 
           sendMessage({
             room_id: data?.room_id,
-            receiver_id: rooms.find?.((room) => room.room_id === data?.room_id)
+            receiver_id: rooms?.original?.rooms.find?.((room) => room.room_id === data?.room_id)
               ?.user?.id,
             message: messageToSent,
           });
